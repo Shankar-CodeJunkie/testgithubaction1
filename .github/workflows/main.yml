@@ -1,0 +1,38 @@
+name: CI-Shankar
+    
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  release:
+    types: [published]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_call:
+    secrets:
+      APP_ID:
+        required: false
+      APP_PRIVATE_KEY:
+        required: true
+      ADD_TO_PROJECT_PAT:
+        required: true
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@main
+      - name: Call my custom action
+        uses: release-notifications-pr@latest
+        with: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: 'Shankar-CodeJunkie'
+          REPO_NAME: 'testgithubaction1'
+          enabled: true
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}  
