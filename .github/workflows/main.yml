@@ -34,7 +34,7 @@ jobs:
         with: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: 'Shankar-CodeJunkie'
-          REPO_NAME: 'testgithubaction'
+          REPO_NAME: 'testgithubaction1'
           enabled: true
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}  
