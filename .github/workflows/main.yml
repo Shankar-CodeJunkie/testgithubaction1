@@ -28,7 +28,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@main
       - name: release-notifications-on-pullrequest
-      - uses: Shankar-CodeJunkie/release-notifications-pr@v1.0.0
+        uses: Shankar-CodeJunkie/release-notifications-pr@v1.0.0
         with: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: 'Shankar-CodeJunkie'
